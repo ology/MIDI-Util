@@ -90,9 +90,12 @@ Positional parameters and defaults:
 
 sub set_chan_patch {
     my ( $score, $channel, $patch ) = @_;
+
     $channel //= 0;
     $patch   //= 0;
+
     $score->patch_change( $channel, $patch );
+
     $score->noop( 'c' . $channel );
 }
 
