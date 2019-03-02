@@ -34,8 +34,8 @@ C<MIDI::Util> comprises a couple handy MIDI utilities.
     octave  => 4,
   );
 
-Set basic MIDI parameters and return a MIDI score object.  If given a B<lead_in>,
-play a hi-hat for that many beats.
+Set basic MIDI parameters and return a L<MIDI::Simple> score object.  If given a
+B<lead_in>, play a hi-hat for that many beats.
 
 Named parameters and defaults:
 
