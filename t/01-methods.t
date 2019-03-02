@@ -6,7 +6,7 @@ use Test::More;
 
 use_ok 'MIDI::Util';
 
-my $score = MIDI::Util::setup_midi();
+my $score = MIDI::Util::setup_score();
 isa_ok $score, 'MIDI::Simple', 'score';
 
 is $score->Tempo, 96, 'Tempo';

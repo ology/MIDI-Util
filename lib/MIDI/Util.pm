@@ -2,7 +2,7 @@ package MIDI::Util;
 
 # ABSTRACT: MIDI Utilities
 
-our $VERSION = '0.0100';
+our $VERSION = '0.0200';
 
 use strict;
 use warnings;
@@ -13,7 +13,7 @@ use Music::Tempo;
 =head1 SYNOPSIS
 
   use MIDI::Util;
-  my $score = MIDI::Util::setup_midi( bpm => 120, etc => '...', );
+  my $score = MIDI::Util::setup_score( bpm => 120, etc => '...', );
   # ...
   MIDI::Util::set_chan_patch( $score, 0, 1 );
 
@@ -23,13 +23,13 @@ C<MIDI::Util> comprises a couple handy MIDI utilities.
 
 =head1 FUNCTIONS
 
-=head2 setup_midi()
+=head2 setup_score()
 
-  $score = MIDI::Util::setup_midi(
+  $score = MIDI::Util::setup_score(
     lead_in => 4,
     volume  => 120,
     bpm     => 100,
-    channel => 16,
+    channel => 15,
     patch   => 42,
     octave  => 4,
   );
@@ -48,7 +48,7 @@ Named parameters and defaults:
 
 =cut
 
-sub setup_midi {
+sub setup_score {
     my %args = (
         lead_in => 4,
         volume  => 120,
