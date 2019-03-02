@@ -1,4 +1,5 @@
 Revision history for MIDI-Util
 
 {{$NEXT}}
+    - Ported from https://github.com/ology/Music/blob/master/MIDIUtil.pm
     - Minted by Dist::Zilla.
