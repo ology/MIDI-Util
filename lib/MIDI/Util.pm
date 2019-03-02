@@ -2,20 +2,24 @@ package MIDI::Util;
 
 # ABSTRACT: MIDI Utilities
 
-our $VERSION = '0.0200';
+our $VERSION = '0.0300';
 
 use strict;
 use warnings;
 
+use MIDI::Track;
 use MIDI::Simple;
 use Music::Tempo;
 
 =head1 SYNOPSIS
 
   use MIDI::Util;
+
   my $score = MIDI::Util::setup_score( bpm => 120, etc => '...', );
-  # ...
+
   MIDI::Util::set_chan_patch( $score, 0, 1 );
+
+  my $track = MIDI::Util::new_track( channel => 0, patch => 1, tempo => 450_000 );
 
 =head1 DESCRIPTION
 
@@ -34,7 +38,7 @@ C<MIDI::Util> comprises a couple handy MIDI utilities.
     octave  => 4,
   );
 
-Set basic MIDI parameters and return a L<MIDI::Simple> score object.  If given a
+Set basic MIDI parameters and return a L<MIDI::Simple> object.  If given a
 B<lead_in>, play a hi-hat for that many beats.
 
 Named parameters and defaults:
@@ -72,6 +76,36 @@ sub setup_score {
     $score->patch_change( $args{channel}, $args{patch} );
 
     return $score;
+}
+
+=head2 new_track()
+
+  $track = MIDI::Util::new_track(%arguments);
+
+Set the B<channel>, B<patch>, and B<tempo> and return a L<MIDI::Track> object.
+
+Named parameters and defaults:
+
+  channel: 0
+  patch:   0
+  tempo:   500000
+
+=cut
+
+sub new_track {
+    my %args = (
+        channel => 0,
+        patch   => 0,
+        tempo   => 500000,
+        @_,
+    );
+
+    my $track = MIDI::Track->new;
+
+    $track->new_event( 'set_tempo', 0, $args{tempo} );
+    $track->new_event( 'patch_change', 0, $args{channel}, $args{patch} );
+
+    return $track;
 }
 
 =head2 set_chan_patch()
