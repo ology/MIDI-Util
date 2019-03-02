@@ -24,7 +24,6 @@ lives_ok {
 is $score->Channel, 1, 'Channel';
 
 my $track;
-
 lives_ok {
     $track = MIDI::Util::new_track()
 } 'lives through new_track';
