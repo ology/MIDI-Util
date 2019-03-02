@@ -21,8 +21,6 @@ use Music::Tempo;
 
 C<MIDI::Util> comprises a couple handy MIDI utilities.
 
-=cut
-
 =head1 FUNCTIONS
 
 =head2 setup_midi()
