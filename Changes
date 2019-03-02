@@ -1,6 +1,10 @@
 Revision history for MIDI-Util
 
 {{$NEXT}}
+    - Add the new_track() function.
+    - Improve tests.
+
+0.0200 2019-03-02 10:47:28
     - Correct function name.
 
 0.0100 2019-03-01 19:58:14
