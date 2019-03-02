@@ -12,10 +12,10 @@ use Music::Tempo;
 
 =head1 SYNOPSIS
 
-  use MIDIUtil;
-  my $score = MIDIUtil::setup_midi( bpm => 120, etc => '...', );
+  use MIDI::Util;
+  my $score = MIDI::Util::setup_midi( bpm => 120, etc => '...', );
   # ...
-  MIDIUtil::set_chan_patch( $score, 0, 1 );
+  MIDI::Util::set_chan_patch( $score, 0, 1 );
 
 =head1 DESCRIPTION
 
@@ -27,7 +27,7 @@ C<MIDI::Util> comprises a couple handy MIDI utilities.
 
 =head2 setup_midi()
 
-  $score = MIDIUtil::setup_midi(
+  $score = MIDI::Util::setup_midi(
     lead_in => 4,
     volume  => 120,
     bpm     => 100,
@@ -46,7 +46,7 @@ Named parameters and defaults:
   bpm:     100
   channel: 0
   patch:   0
-  octave:  5
+  octave:  4
 
 =cut
 
@@ -57,7 +57,7 @@ sub setup_midi {
         bpm     => 100,
         channel => 0,
         patch   => 0,
-        octave  => 5,
+        octave  => 4,
         @_,
     );
 
@@ -78,7 +78,7 @@ sub setup_midi {
 
 =head2 set_chan_patch()
 
-  MIDIUtil::set_chan_patch( $score, $channel, $patch );
+  MIDI::Util::set_chan_patch( $score, $channel, $patch );
 
 Set the MIDI channel and patch.
 
