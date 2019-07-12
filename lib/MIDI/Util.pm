@@ -23,6 +23,8 @@ use Music::Tempo;
 
   my $track = MIDI::Util::new_track( channel => 0, patch => 1, tempo => 450_000 );
 
+  my $dump = MIDI::Util::dump('volume');
+
 =head1 DESCRIPTION
 
 C<MIDI::Util> comprises a couple handy MIDI utilities.
@@ -136,6 +138,8 @@ sub set_chan_patch {
 }
 
 =head2 dump()
+
+  $dump = MIDI::Util::dump($list_name);
 
 Return array references of the following L<MIDI>, L<MIDI::Simple>, and
 L<MIDI::Event> lists:
