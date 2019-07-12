@@ -141,8 +141,8 @@ sub set_chan_patch {
 
   $dump = MIDI::Util::dump($list_name);
 
-Return array references of the following L<MIDI>, L<MIDI::Simple>, and
-L<MIDI::Event> lists:
+Return sorted array references of the following L<MIDI>,
+L<MIDI::Simple>, and L<MIDI::Event> lists:
 
   Volume
   Length
