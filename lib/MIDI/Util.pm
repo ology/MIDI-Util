@@ -44,8 +44,9 @@ C<MIDI::Util> comprises handy MIDI utilities.
     octave  => $octave,
   );
 
-Set basic MIDI parameters and return a L<MIDI::Simple> object.  If given a
-B<lead_in>, play a hi-hat for that many beats.
+Set basic MIDI parameters and return a L<MIDI::Simple> object.  If
+given a B<lead_in>, play a hi-hat for that many beats.  Do not
+include a B<lead_in> by passing C<0> as its value.
 
 Named parameters and defaults:
 
@@ -94,7 +95,8 @@ sub setup_score {
     tempo   => $tempo,
   );
 
-Set the B<channel>, B<patch>, and B<tempo> and return a L<MIDI::Track> object.
+Set the B<channel>, B<patch>, and B<tempo> and return a L<MIDI::Track>
+object.
 
 Named parameters and defaults:
 
