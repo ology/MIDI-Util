@@ -2,7 +2,7 @@ package MIDI::Util;
 
 # ABSTRACT: MIDI Utilities
 
-our $VERSION = '0.0401';
+our $VERSION = '0.0402';
 
 use strict;
 use warnings;
@@ -144,7 +144,8 @@ sub set_chan_patch {
     $channel //= 0;
     $patch   //= 0;
 
-    $score->patch_change( $channel, $patch );
+    $score->patch_change( $channel, $patch )
+        if defined $patch;
 
     $score->noop( 'c' . $channel );
 }
