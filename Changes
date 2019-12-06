@@ -2,6 +2,7 @@ Revision history for MIDI-Util
 
 {{$NEXT}}
     - Only set the patch if given a patch.
+    - Improve documentation.
 
 0.0401 2019-08-24 12:55:06
     - Improve documentation.

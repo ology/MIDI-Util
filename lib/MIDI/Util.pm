@@ -124,9 +124,9 @@ sub new_track {
 
 =head2 set_chan_patch
 
-  MIDI::Util::set_chan_patch($score);  # Use defaults
+  MIDI::Util::set_chan_patch( $score, $channel );  # Just set the channel
 
-  MIDI::Util::set_chan_patch( $score, $channel, $patch );  # Override defaults
+  MIDI::Util::set_chan_patch( $score, $channel, $patch );
 
 Set the MIDI channel and patch.
 
@@ -134,7 +134,7 @@ Positional parameters and defaults:
 
   score:   undef (required)
   channel: 0
-  patch:   0
+  patch:   undef
 
 =cut
 
@@ -142,7 +142,6 @@ sub set_chan_patch {
     my ( $score, $channel, $patch ) = @_;
 
     $channel //= 0;
-    $patch   //= 0;
 
     $score->patch_change( $channel, $patch )
         if defined $patch;
