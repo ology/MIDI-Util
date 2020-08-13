@@ -71,4 +71,7 @@ is $x->[-1], 'text_event_0f', 'text_events';
 $x = MIDI::Util::dump('nontext_meta_events');
 is $x->[-1], 'raw_data', 'nontext_meta_events';
 
+my @notes = MIDI::Util::midi_format('C','C#','Db','D'); # C, Cs, Df, D
+is_deeply \@notes, [qw/C Cs Df D/], 'midi_format';
+
 done_testing();
