@@ -23,12 +23,6 @@ lives_ok {
 } 'lives through set_chan_patch';
 is $score->Channel, 1, 'Channel';
 
-my $track;
-lives_ok {
-    $track = MIDI::Util::new_track()
-} 'lives through new_track';
-isa_ok $track, 'MIDI::Track';
-
 my $x = MIDI::Util::dump('volume');
 is $x->[-1], 'fff => 127', 'volume';
 
