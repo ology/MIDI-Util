@@ -1,7 +1,6 @@
 Revision history for MIDI-Util
 
 {{$NEXT}}
-    - The previous change was supposed to increment the major version number. Oops!
     - Remove the unused new_track() function.
 
 0.0403 2020-08-13 14:01:22
