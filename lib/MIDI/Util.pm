@@ -2,7 +2,7 @@ package MIDI::Util;
 
 # ABSTRACT: MIDI Utilities
 
-our $VERSION = '0.0402';
+our $VERSION = '0.0403';
 
 use strict;
 use warnings;
@@ -24,6 +24,8 @@ use Music::Tempo;
   my $track = MIDI::Util::new_track( channel => 0, patch => 1, tempo => 450_000 );
 
   my $dump = MIDI::Util::dump('volume');
+
+  my @notes = midi_format('C','C#','Db','D'); # C, Cs, Df, D
 
 =head1 DESCRIPTION
 
@@ -257,6 +259,26 @@ sub dump {
     else {
         return [];
     }
+}
+
+=head2 midi_format
+
+  @formatted = MIDI::Util::midi_format(@notes);
+
+Change sharp C<#> and flat C<b>, in the list of named notes, to the
+L<MIDI::Simple> C<s> and C<f> respectively.
+
+=cut
+
+sub midi_format {
+    my (@notes) = @_;
+    my @formatted;
+    for my $note (@notes) {
+        $note =~ s/#/s/;
+        $note =~ s/b/f/;
+        push @formatted, $note;
+    }
+    return @formatted;
 }
 
 1;
