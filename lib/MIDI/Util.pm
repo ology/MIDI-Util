@@ -21,7 +21,7 @@ use Music::Tempo;
 
   MIDI::Util::set_time_sig( $score, '5/4' );
 
-  my $dump = MIDI::Util::dump('volume');
+  my $dump = MIDI::Util::dump('volume'); # length, etc.
 
   my @notes = MIDI::Util::midi_format('C','C#','Db','D'); # C, Cs, Df, D
 
