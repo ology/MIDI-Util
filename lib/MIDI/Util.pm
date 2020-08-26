@@ -19,6 +19,8 @@ use Music::Tempo;
 
   MIDI::Util::set_chan_patch( $score, 0, 1 );
 
+  MIDI::Util::set_time_sig( $score, '5/4' );
+
   my $dump = MIDI::Util::dump('volume');
 
   my @notes = midi_format('C','C#','Db','D'); # C, Cs, Df, D
@@ -240,6 +242,25 @@ sub midi_format {
     return @formatted;
 }
 
+=head2 set_time_sig
+
+  MIDI::Util::set_time_sig( $score, $signature );
+
+Set the B<score> C<time_signature> based on the given string.
+
+=cut
+
+sub set_time_sig {
+    my ($score, $signature) = @_;
+    my ($beats, $divisions) = split /\//, $signature;
+    $score->time_signature(
+        $beats,
+        ($divisions == 8 ? 3 : 2),
+        ($divisions == 8 ? 24 : 18 ),
+        8
+    );
+}
+
 1;
 __END__
 
@@ -247,11 +268,7 @@ __END__
 
 L<MIDI>
 
-L<MIDI::Event>
-
 L<MIDI::Simple>
-
-L<MIDI::Track>
 
 L<Music::Tempo>
 
