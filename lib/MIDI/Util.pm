@@ -61,16 +61,19 @@ Named parameters and defaults:
 
 sub setup_score {
     my %args = (
-        lead_in => 4,
-        volume  => 120,
-        bpm     => 100,
-        channel => 0,
-        patch   => 0,
-        octave  => 4,
+        lead_in   => 4,
+        volume    => 120,
+        bpm       => 100,
+        channel   => 0,
+        patch     => 0,
+        octave    => 4,
+        signature => '4/4',
         @_,
     );
 
     my $score = MIDI::Simple->new_score();
+
+    set_time_sig($score, $args{signature});
 
     $score->set_tempo( bpm_to_ms($args{bpm}) * 1000 );
 
