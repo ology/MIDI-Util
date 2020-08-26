@@ -1,6 +1,9 @@
 Revision history for MIDI-Util
 
 {{$NEXT}}
+    - Add missing signature documentation.
+
+0.0600 2020-08-26 09:43:00
     - Add and test the set_time_sig() function.
     - Improve documentation.
 

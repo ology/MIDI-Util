@@ -2,7 +2,7 @@ package MIDI::Util;
 
 # ABSTRACT: MIDI Utilities
 
-our $VERSION = '0.0600';
+our $VERSION = '0.0601';
 
 use strict;
 use warnings;
@@ -36,12 +36,13 @@ C<MIDI::Util> comprises handy MIDI utilities.
   $score = MIDI::Util::setup_score;  # Use defaults
 
   $score = MIDI::Util::setup_score(  # Override defaults
-    lead_in => $beats,
-    volume  => $volume,
-    bpm     => $bpm,
-    channel => $channel,
-    patch   => $patch,
-    octave  => $octave,
+    lead_in   => $beats,
+    volume    => $volume,
+    bpm       => $bpm,
+    channel   => $channel,
+    patch     => $patch,
+    octave    => $octave,
+    signature => $signature,
   );
 
 Set basic MIDI parameters and return a L<MIDI::Simple> object.  If
@@ -50,12 +51,13 @@ include a B<lead_in> by passing C<0> as its value.
 
 Named parameters and defaults:
 
-  lead_in: 4
-  volume:  120
-  bpm:     100
-  channel: 0
-  patch:   0
-  octave:  4
+  lead_in:   4
+  volume:    120
+  bpm:       100
+  channel:   0
+  patch:     0
+  octave:    4
+  signature: 4/4
 
 =cut
 
