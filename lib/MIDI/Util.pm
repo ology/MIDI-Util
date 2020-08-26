@@ -23,7 +23,7 @@ use Music::Tempo;
 
   my $dump = MIDI::Util::dump('volume');
 
-  my @notes = midi_format('C','C#','Db','D'); # C, Cs, Df, D
+  my @notes = MIDI::Util::midi_format('C','C#','Db','D'); # C, Cs, Df, D
 
 =head1 DESCRIPTION
 
