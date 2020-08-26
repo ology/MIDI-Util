@@ -1,7 +1,8 @@
 Revision history for MIDI-Util
 
 {{$NEXT}}
-    - Add the set_time_sig() function.
+    - Add and test the set_time_sig() function.
+    - Improve documentation.
 
 0.0500 2020-08-13 15:34:46
     - Remove the unused new_track() function.
