@@ -2,13 +2,13 @@ package MIDI::Util;
 
 # ABSTRACT: MIDI Utilities
 
-our $VERSION = '0.0601';
+our $VERSION = '0.0602';
 
 use strict;
 use warnings;
 
-use MIDI;
-use MIDI::Simple;
+use MIDI ();
+use MIDI::Simple ();
 use Music::Tempo;
 
 =head1 SYNOPSIS
