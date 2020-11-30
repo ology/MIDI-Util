@@ -32,6 +32,8 @@ use Music::Tempo qw(bpm_to_ms);
 
 C<MIDI::Util> comprises handy MIDI utilities.
 
+Nothing is exported by default.
+
 =head1 FUNCTIONS
 
 =head2 setup_score
