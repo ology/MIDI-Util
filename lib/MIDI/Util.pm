@@ -9,7 +9,8 @@ use warnings;
 
 use MIDI ();
 use MIDI::Simple ();
-use Music::Tempo;
+use Music::Chord::Note;
+use Music::Tempo qw(bpm_to_ms);
 
 =head1 SYNOPSIS
 
@@ -24,6 +25,8 @@ use Music::Tempo;
   my $dump = MIDI::Util::dump('volume'); # length, etc.
 
   my @notes = MIDI::Util::midi_format('C','C#','Db','D'); # C, Cs, Df, D
+
+  @notes = MIDI::Util::add_octave(4, qw(E G C)); # E4, G4, C5
 
 =head1 DESCRIPTION
 
@@ -243,6 +246,28 @@ sub midi_format {
         $note =~ s/#/s/;
         $note =~ s/b/f/;
         push @formatted, $note;
+    }
+    return @formatted;
+}
+
+=head2 add_octave
+
+  @formatted = MIDI::Util::add_octave($octave, @chord);
+
+Append the octave to each *named* note in the given B<chord>.
+
+=cut
+
+sub add_octave {
+    my ($octave, @chord) = @_;
+    my $cn = Music::Chord::Note->new();
+    my @posn = map { $cn->scale($_) } @chord;
+    my @formatted;
+    my $last_posn = -1;
+    for my $n (0 .. $#chord) {
+        $octave = $posn[$n] > $last_posn ? $octave : ++$octave;
+        $last_posn = $posn[$n];
+        push @formatted, $chord[$n] . $octave;
     }
     return @formatted;
 }
