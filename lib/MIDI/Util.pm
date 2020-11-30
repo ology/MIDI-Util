@@ -298,6 +298,8 @@ __END__
 
 =head1 SEE ALSO
 
+The F<t/01-functions.t> test file in this distribution
+
 L<MIDI>
 
 L<MIDI::Simple>
