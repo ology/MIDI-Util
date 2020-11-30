@@ -2,6 +2,7 @@ Revision history for MIDI-Util
 
 {{$NEXT}}
     - Add the add_octave() function.
+    - Improve documentation.
 
 0.0602 2020-11-26 11:33:55
     - Don't import anything from MIDI::Simple.
