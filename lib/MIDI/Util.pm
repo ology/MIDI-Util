@@ -302,6 +302,8 @@ L<MIDI>
 
 L<MIDI::Simple>
 
+L<Music::Chord::Note>
+
 L<Music::Tempo>
 
 =cut
