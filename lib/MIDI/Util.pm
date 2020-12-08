@@ -2,14 +2,13 @@ package MIDI::Util;
 
 # ABSTRACT: MIDI Utilities
 
-our $VERSION = '0.0700';
+our $VERSION = '0.0701';
 
 use strict;
 use warnings;
 
 use MIDI ();
 use MIDI::Simple ();
-use Music::Chord::Note;
 use Music::Tempo qw(bpm_to_ms);
 
 =head1 SYNOPSIS
@@ -25,8 +24,6 @@ use Music::Tempo qw(bpm_to_ms);
   my $dump = MIDI::Util::dump('volume'); # length, etc.
 
   my @notes = MIDI::Util::midi_format('C','C#','Db','D'); # C, Cs, Df, D
-
-  @notes = MIDI::Util::add_octave(4, qw(E G C)); # E4, G4, C5
 
 =head1 DESCRIPTION
 
@@ -252,28 +249,6 @@ sub midi_format {
     return @formatted;
 }
 
-=head2 add_octave
-
-  @formatted = MIDI::Util::add_octave($octave, @chord);
-
-Append the octave to each *named* note in the given B<chord>.
-
-=cut
-
-sub add_octave {
-    my ($octave, @chord) = @_;
-    my $cn = Music::Chord::Note->new();
-    my @posn = map { $cn->scale($_) } @chord;
-    my @formatted;
-    my $last_posn = -1;
-    for my $n (0 .. $#chord) {
-        $octave = $posn[$n] > $last_posn ? $octave : ++$octave;
-        $last_posn = $posn[$n];
-        push @formatted, $chord[$n] . $octave;
-    }
-    return @formatted;
-}
-
 =head2 set_time_sig
 
   MIDI::Util::set_time_sig( $score, $signature );
@@ -303,8 +278,6 @@ The F<t/01-functions.t> test file in this distribution
 L<MIDI>
 
 L<MIDI::Simple>
-
-L<Music::Chord::Note>
 
 L<Music::Tempo>
 

@@ -2,6 +2,7 @@ Revision history for MIDI-Util
 
 {{$NEXT}}
     - Improve documentation.
+    - Remove the add_octave() function now that it's part of Music::Chord::Note.
 
 0.0700 2020-11-30 08:08:24
     - Add the add_octave() function.
