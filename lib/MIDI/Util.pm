@@ -2,7 +2,7 @@ package MIDI::Util;
 
 # ABSTRACT: MIDI Utilities
 
-our $VERSION = '0.0701';
+our $VERSION = '0.0702';
 
 use strict;
 use warnings;
@@ -15,15 +15,19 @@ use Music::Tempo qw(bpm_to_ms);
 
   use MIDI::Util;
 
-  my $score = MIDI::Util::setup_score( bpm => 120, etc => '...', );
+  my $dump = MIDI::Util::dump('volume'); # length, etc.
+  print Dumper $dump;
 
-  MIDI::Util::set_chan_patch( $score, 0, 1 );
+  my $score = MIDI::Util::setup_score( bpm => 120, etc => '...', );
 
   MIDI::Util::set_time_sig( $score, '5/4' );
 
-  my $dump = MIDI::Util::dump('volume'); # length, etc.
+  MIDI::Util::set_chan_patch( $score, 0, 1 );
 
   my @notes = MIDI::Util::midi_format('C','C#','Db','D'); # C, Cs, Df, D
+
+  $score->n('wn', @notes);         # MIDI::Simple functionality
+  $score->write_score('some.mid'); # MIDI::Simple functionality
 
 =head1 DESCRIPTION
 
