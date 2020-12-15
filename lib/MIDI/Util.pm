@@ -248,6 +248,10 @@ sub midi_format {
     for my $note (@notes) {
         $note =~ s/#/s/;
         $note =~ s/b/f/;
+        $note =~ s/Es/F/;
+        $note =~ s/Bs/C/;
+        $note =~ s/Cf/B/;
+        $note =~ s/Ff/E/;
         push @formatted, $note;
     }
     return @formatted;
