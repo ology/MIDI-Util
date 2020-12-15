@@ -1,6 +1,7 @@
 Revision history for MIDI-Util
 
 {{$NEXT}}
+    - Add checks in midi_format() for "bogus" enharmonic equivalents.
 
 0.0702 2020-12-10 05:05:07
     - Improve SYNOPSIS.
