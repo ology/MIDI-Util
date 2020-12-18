@@ -11,6 +11,8 @@ use MIDI ();
 use MIDI::Simple ();
 use Music::Tempo qw(bpm_to_ms);
 
+use constant TICKS => 96;
+
 =head1 SYNOPSIS
 
   use MIDI::Util;
@@ -132,6 +134,7 @@ L<MIDI::Simple>, and L<MIDI::Event> internal lists:
 
   Volume
   Length
+  TICKS
   Note
   note2number
   number2note
@@ -160,6 +163,13 @@ sub dump {
     elsif ( lc $key eq 'length' ) {
         return [
             map { "$_ => $MIDI::Simple::Length{$_}" }
+                sort { $MIDI::Simple::Length{$a} <=> $MIDI::Simple::Length{$b} }
+                    keys %MIDI::Simple::Length
+        ];
+    }
+    elsif ( lc $key eq 'ticks' ) {
+        return [
+            map { "$_ => " . $MIDI::Simple::Length{$_} * TICKS }
                 sort { $MIDI::Simple::Length{$a} <=> $MIDI::Simple::Length{$b} }
                     keys %MIDI::Simple::Length
         ];
