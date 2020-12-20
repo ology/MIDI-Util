@@ -1,6 +1,8 @@
 Revision history for MIDI-Util
 
 {{$NEXT}}
+
+0.0704 2020-12-18 09:47:22
     - Add the TICKS dump functionality.
 
 0.0703 2020-12-15 06:56:12
