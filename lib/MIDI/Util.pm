@@ -266,6 +266,11 @@ sub midi_format {
         $note =~ s/F##/G/;
         $note =~ s/G##/A/;
 
+        $note =~ s/Dbb/C/;
+        $note =~ s/Ebb/D/;
+        $note =~ s/Abb/G/;
+        $note =~ s/Bbb/A/;
+
         $note =~ s/#/s/;
         $note =~ s/b/f/;
 
