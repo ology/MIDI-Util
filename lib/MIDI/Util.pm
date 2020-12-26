@@ -256,11 +256,6 @@ sub midi_format {
     my (@notes) = @_;
     my @formatted;
     for my $note (@notes) {
-        $note =~ s/C#/B/;
-        $note =~ s/E#/F/;
-        $note =~ s/F#/E/;
-        $note =~ s/B#/C/;
-
         $note =~ s/C##/D/;
         $note =~ s/D##/E/;
         $note =~ s/F##/G/;
@@ -270,6 +265,12 @@ sub midi_format {
         $note =~ s/Ebb/D/;
         $note =~ s/Abb/G/;
         $note =~ s/Bbb/A/;
+
+        $note =~ s/E#/F/;
+        $note =~ s/B#/C/;
+
+        $note =~ s/Cb/B/;
+        $note =~ s/Fb/E/;
 
         $note =~ s/#/s/;
         $note =~ s/b/f/;
