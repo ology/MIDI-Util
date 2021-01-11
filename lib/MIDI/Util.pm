@@ -13,7 +13,7 @@ use Music::Tempo qw(bpm_to_ms);
 use Exporter 'import';
 
 our @EXPORT = qw(
-    dump
+    midi_dump
     midi_format
     set_chan_patch
     set_time_sig
@@ -24,9 +24,9 @@ use constant TICKS => 96;
 
 =head1 SYNOPSIS
 
-  use MIDI::Util qw(dump setup_score set_time_sig set_chan_patch midi_format);
+  use MIDI::Util qw(midi_dump midi_format set_chan_patch set_time_sig setup_score);
 
-  my $dump = dump('volume'); # length, etc.
+  my $dump = midi_dump('volume'); # length, etc.
   print Dumper $dump;
 
   my $score = setup_score( bpm => 120, etc => '...', );
@@ -134,9 +134,9 @@ sub set_chan_patch {
     $score->noop( 'c' . $channel );
 }
 
-=head2 dump
+=head2 midi_dump
 
-  $dump = MIDI::Util::dump($list_name);
+  $dump = MIDI::Util::midi_dump($list_name);
 
 Return sorted array references of the following L<MIDI>,
 L<MIDI::Simple>, and L<MIDI::Event> internal lists:
@@ -159,7 +159,7 @@ L<MIDI::Simple>, and L<MIDI::Event> internal lists:
 
 =cut
 
-sub dump {
+sub midi_dump {
     my ($key) = @_;
 
     if ( lc $key eq 'volume' ) {
