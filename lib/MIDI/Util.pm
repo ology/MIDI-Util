@@ -24,18 +24,18 @@ use constant TICKS => 96;
 
 =head1 SYNOPSIS
 
-  use MIDI::Util;
+  use MIDI::Util qw(dump setup_score set_time_sig set_chan_patch midi_format);
 
-  my $dump = MIDI::Util::dump('volume'); # length, etc.
+  my $dump = dump('volume'); # length, etc.
   print Dumper $dump;
 
-  my $score = MIDI::Util::setup_score( bpm => 120, etc => '...', );
+  my $score = setup_score( bpm => 120, etc => '...', );
 
-  MIDI::Util::set_time_sig( $score, '5/4' );
+  set_time_sig( $score, '5/4' );
 
-  MIDI::Util::set_chan_patch( $score, 0, 1 );
+  set_chan_patch( $score, 0, 1 );
 
-  my @notes = MIDI::Util::midi_format('C','C#','Db','D'); # C, Cs, Df, D
+  my @notes = midi_format('C','C#','Db','D'); # C, Cs, Df, D
 
   $score->n('wn', @notes);         # MIDI::Simple functionality
   $score->write_score('some.mid'); # MIDI::Simple functionality
