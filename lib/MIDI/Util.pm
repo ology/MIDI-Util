@@ -10,6 +10,15 @@ use warnings;
 use MIDI ();
 use MIDI::Simple ();
 use Music::Tempo qw(bpm_to_ms);
+use Exporter 'import';
+
+our @EXPORT = qw(
+    dump
+    midi_format
+    set_chan_patch
+    set_time_sig
+    setup_score
+);
 
 use constant TICKS => 96;
 
