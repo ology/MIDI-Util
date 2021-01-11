@@ -5,7 +5,13 @@ use warnings;
 use Test::More;
 use Test::Exception;
 
-use_ok 'MIDI::Util', qw(midi_dump setup_score set_time_sig set_chan_patch midi_format);
+use_ok 'MIDI::Util', qw(
+    midi_dump
+    midi_format
+    set_chan_patch
+    set_time_sig
+    setup_score
+);
 
 my $score;
 lives_ok {
