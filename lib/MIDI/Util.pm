@@ -53,9 +53,9 @@ Nothing is exported by default.
 
 =head2 setup_score
 
-  $score = MIDI::Util::setup_score;  # Use defaults
+  $score = setup_score;  # Use defaults
 
-  $score = MIDI::Util::setup_score(  # Override defaults
+  $score = setup_score(  # Override defaults
     lead_in   => $beats,
     volume    => $volume,
     bpm       => $bpm,
@@ -112,9 +112,9 @@ sub setup_score {
 
 =head2 set_chan_patch
 
-  MIDI::Util::set_chan_patch( $score, $channel );  # Just set the channel
+  set_chan_patch( $score, $channel );  # Just set the channel
 
-  MIDI::Util::set_chan_patch( $score, $channel, $patch );
+  set_chan_patch( $score, $channel, $patch );
 
 Set the MIDI channel and patch.
 
@@ -139,7 +139,7 @@ sub set_chan_patch {
 
 =head2 midi_dump
 
-  $dump = MIDI::Util::midi_dump($list_name);
+  $dump = midi_dump($list_name);
 
 Return sorted array references of the following L<MIDI>,
 L<MIDI::Simple>, and L<MIDI::Event> internal lists:
@@ -257,7 +257,7 @@ sub midi_dump {
 
 =head2 midi_format
 
-  @formatted = MIDI::Util::midi_format(@notes);
+  @formatted = midi_format(@notes);
 
 Change sharp C<#> and flat C<b>, in the list of named notes, to the
 L<MIDI::Simple> C<s> and C<f> respectively.
@@ -294,7 +294,7 @@ sub midi_format {
 
 =head2 set_time_sig
 
-  MIDI::Util::set_time_sig( $score, $signature );
+  set_time_sig( $score, $signature );
 
 Set the B<score> C<time_signature> based on the given string.
 
