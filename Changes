@@ -1,6 +1,8 @@
 Revision history for MIDI-Util
 
 {{$NEXT}}
+
+0.0800 2021-01-10 19:02:29
     - Alright. Use Exporter.
     - Rename the dump() fuction to midi_dump().
 
