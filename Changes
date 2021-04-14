@@ -1,6 +1,9 @@
 Revision history for MIDI-Util
 
 {{$NEXT}}
+    - Fix documentation!
+
+0.0900 2021-04-14 14:46:10
     - Add the dura_size() function.
 
 0.0800 2021-01-10 19:02:29
