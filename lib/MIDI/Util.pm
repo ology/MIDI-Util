@@ -18,6 +18,7 @@ our @EXPORT = qw(
     set_chan_patch
     set_time_sig
     setup_score
+    dura_size
 );
 
 use constant TICKS => 96;
@@ -306,6 +307,27 @@ sub set_time_sig {
         ($divisions == 8 ? 24 : 18 ),
         8
     );
+}
+
+=head2 dura_size
+
+  $size = dura_size($duration);
+
+Return the B<duration> size based on the L<MIDI::Simple> C<Length>
+value (e.g. C<hn>, C<ten>) or number of ticks (if given as C<d###>).
+
+=cut
+
+sub dura_size {
+    my ($duration) = @_;
+    my $size = 0;
+    if ($duration =~ /^d(\d+)$/) {
+        $size = sprintf '%0.f', $1 / TICKS;
+    }
+    else {
+        $size = $MIDI::Simple::Length{$duration};
+    }
+    return $size;
 }
 
 1;
