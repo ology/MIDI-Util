@@ -314,6 +314,7 @@ sub set_time_sig {
 =head2 dura_size
 
   $size = dura_size($duration);
+  $size = dura_size($duration, $ppqn); # For MIDI::Simple ppqn=96 ticks
 
 Return the B<duration> size based on the L<MIDI::Simple> C<Length>
 value (e.g. C<hn>, C<ten>) or number of ticks (if given as C<d###>).
@@ -321,10 +322,11 @@ value (e.g. C<hn>, C<ten>) or number of ticks (if given as C<d###>).
 =cut
 
 sub dura_size {
-    my ($duration) = @_;
+    my ($duration, $ppqn) = @_;
+    $ppqn ||= TICKS;
     my $size = 0;
     if ($duration =~ /^d(\d+)$/) {
-        $size = sprintf '%0.f', $1 / TICKS;
+        $size = sprintf '%0.f', $1 / $ppqn;
     }
     else {
         $size = $MIDI::Simple::Length{$duration};
