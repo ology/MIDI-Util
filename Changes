@@ -1,6 +1,9 @@
 Revision history for MIDI-Util
 
 {{$NEXT}}
+    - Add ppqn handling to dura_size().
+
+0.0901 2021-04-14 14:49:14
     - Fix documentation!
 
 0.0900 2021-04-14 14:46:10
