@@ -30,7 +30,7 @@ use constant TICKS => 96;
   my $dump = midi_dump('volume'); # length, etc.
   print Dumper $dump;
 
-  my $size = dura_size($duration);
+  my $size = dura_size('dqn');
 
   my $score = setup_score( bpm => 120, etc => '...', );
 
