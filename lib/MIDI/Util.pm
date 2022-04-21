@@ -35,14 +35,17 @@ use constant TICKS => 96;
 
   my $score = setup_score( bpm => 120, etc => '...', );
 
+  my $ticks = ticks($score);
+  my $half = 'd' . ( $size / 2 * $ticks );
+
   set_time_sig( $score, '5/4' );
 
   set_chan_patch( $score, 0, 1 );
 
   my @notes = midi_format('C','C#','Db','D'); # C, Cs, Df, D
 
-  $score->n('wn', @notes);         # MIDI::Simple functionality
-  $score->write_score('some.mid'); # MIDI::Simple functionality
+  $score->n( $half, @notes );      # MIDI::Simple functionality
+  $score->write_score('some.mid'); # "
 
 =head1 DESCRIPTION
 
