@@ -2,7 +2,7 @@ package MIDI::Util;
 
 # ABSTRACT: MIDI Utilities
 
-our $VERSION = '0.0902';
+our $VERSION = '0.1000';
 
 use strict;
 use warnings;
@@ -19,6 +19,7 @@ our @EXPORT = qw(
     set_time_sig
     setup_score
     dura_size
+    ticks
 );
 
 use constant TICKS => 96;
@@ -335,6 +336,19 @@ sub dura_size {
         $size = $MIDI::Simple::Length{$duration};
     }
     return $size;
+}
+
+=head2 ticks
+
+  $ticks = ticks($score);
+
+Return the B<score> ticks.
+
+=cut
+
+sub ticks {
+    my ($score) = @_;
+    return ${ $score->{Tempo} };
 }
 
 1;

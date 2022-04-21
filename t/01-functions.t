@@ -12,6 +12,7 @@ use_ok 'MIDI::Util', qw(
     set_time_sig
     setup_score
     dura_size
+    ticks
 );
 
 my $score;
@@ -85,5 +86,7 @@ is dura_size('qn'), 1, 'dura_size';
 is dura_size('wn'), 4, 'dura_size';
 is dura_size('d96'), 1, 'dura_size';
 is dura_size('d384'), 4, 'dura_size';
+
+is ticks($score), 96, 'ticks';
 
 done_testing();

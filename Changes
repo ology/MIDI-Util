@@ -1,6 +1,7 @@
 Revision history for MIDI-Util
 
 {{$NEXT}}
+    - Add the ticks() function.
 
 0.0902 2021-04-14 15:07:26
     - Add ppqn handling to dura_size().
