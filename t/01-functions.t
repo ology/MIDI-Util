@@ -9,7 +9,6 @@ use_ok 'MIDI::Util', qw(
     midi_dump
     midi_format
     set_chan_patch
-    set_time_sig
     setup_score
     dura_size
     ticks
