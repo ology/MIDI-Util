@@ -1,6 +1,7 @@
 Revision history for MIDI-Util
 
 {{$NEXT}}
+    - Rename set_time_sig to set_time_signature.
 
 0.1001 2022-04-21 08:25:47
     - Improve SYNOPSIS.
