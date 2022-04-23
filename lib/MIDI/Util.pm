@@ -16,7 +16,7 @@ our @EXPORT = qw(
     midi_dump
     midi_format
     set_chan_patch
-    set_time_sig
+    set_time_signature
     setup_score
     dura_size
     ticks
@@ -26,7 +26,7 @@ use constant TICKS => 96;
 
 =head1 SYNOPSIS
 
-  use MIDI::Util qw(midi_dump midi_format set_chan_patch set_time_sig setup_score);
+  use MIDI::Util qw(midi_dump midi_format set_chan_patch set_time_signature setup_score);
 
   my $dump = midi_dump('volume'); # length, etc.
   print Dumper $dump;
@@ -38,7 +38,7 @@ use constant TICKS => 96;
   my $ticks = ticks($score);
   my $half = 'd' . ( $size / 2 * $ticks );
 
-  set_time_sig( $score, '5/4' );
+  set_time_signature( $score, '5/4' );
 
   set_chan_patch( $score, 0, 1 );
 
@@ -99,7 +99,7 @@ sub setup_score {
 
     my $score = MIDI::Simple->new_score();
 
-    set_time_sig($score, $args{signature});
+    set_time_signature($score, $args{signature});
 
     $score->set_tempo( bpm_to_ms($args{bpm}) * 1000 );
 
@@ -296,15 +296,15 @@ sub midi_format {
     return @formatted;
 }
 
-=head2 set_time_sig
+=head2 set_time_signature
 
-  set_time_sig( $score, $signature );
+  set_time_signature( $score, $signature );
 
 Set the B<score> C<time_signature> based on the given string.
 
 =cut
 
-sub set_time_sig {
+sub set_time_signature {
     my ($score, $signature) = @_;
     my ($beats, $divisions) = split /\//, $signature;
     $score->time_signature(
