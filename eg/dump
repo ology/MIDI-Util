@@ -3,12 +3,14 @@ use strict;
 use warnings;
 
 use lib $ENV{HOME} . '/sandbox/MIDI-Util/lib';
-use MIDI::Util qw(midi_dump);
+use MIDI::Util qw(midi_dump reverse_dump);
 use Data::Dumper::Compact qw(ddc);
 
 my $name = shift || 'length';
 
 print ddc(midi_dump($name));
+
+print ddc(reverse_dump($name, 2));
 
 __END__
 volume
