@@ -2,6 +2,7 @@ Revision history for MIDI-Util
 
 {{$NEXT}}
     - Add the eg/dump program.
+    - Add the reverse_dump() function.
 
 0.1002 2022-04-23 12:07:38
     - Rename set_time_sig to set_time_signature.
