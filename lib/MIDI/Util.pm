@@ -32,7 +32,7 @@ use constant TICKS => 96;
   my $dump = midi_dump('volume'); # length, etc.
   print Dumper $dump;
 
-  my $size = dura_size('dqn');
+  my $size = dura_size('dqn'); # 1.5
 
   my $score = setup_score( bpm => 120, etc => '...', );
 
@@ -264,10 +264,10 @@ sub midi_dump {
 
 =head2 reverse_dump
 
-  %by_value = reverse_dump($name);
-  %by_value = reverse_dump($name, $precision); # for name = length
+  $by_value = reverse_dump($name);
+  $by_value = reverse_dump($name, $precision); # for name = length
 
-Return the reversed hash from the B<midi_dump> routine.
+Return the reversed hashref from the B<midi_dump> routine hashes section.
 
 =cut
 
@@ -296,6 +296,9 @@ sub reverse_dump {
 
 Change sharp C<#> and flat C<b>, in the list of named notes, to the
 L<MIDI::Simple> C<s> and C<f> respectively.
+
+Also change accidentals and double-accidentals into their note
+equivalents, e.g. C<Cb> to C<B>, C<C##> to C<D>, etc.
 
 =cut
 
@@ -391,6 +394,8 @@ __END__
 =head1 SEE ALSO
 
 The F<t/01-functions.t> test file and F<eg/*> in this distribution
+
+L<Exporter>
 
 L<MIDI>
 
