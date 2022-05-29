@@ -144,7 +144,7 @@ sub set_chan_patch {
 
 =head2 midi_dump
 
-  $dump = midi_dump($list_name);
+  $dump = midi_dump($name);
 
 Return a hash or array reference of the following L<MIDI>,
 L<MIDI::Simple>, and L<MIDI::Event> internal lists:
