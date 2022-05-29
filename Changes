@@ -1,6 +1,9 @@
 Revision history for MIDI-Util
 
 {{$NEXT}}
+    - Improve documentation.
+
+0.1100 2022-05-29 13:14:56
     - Add the eg/dump program.
     - Add the reverse_dump() function.
     - Made dump() return actual hashrefs, not arrays of strings.
