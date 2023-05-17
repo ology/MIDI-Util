@@ -65,6 +65,7 @@ use constant TICKS => 96;
   my $cfg = timidity_conf('/some/soundfont.sf2');
   timidity_conf('soundfont.sf2', 'timidity.cfg'); # save to a file
 
+  # Or you can just play the score:
   play_timidity($score, 'some.mid', 'soundfont.sf2', 'timidity.cfg');
 
 =head1 DESCRIPTION
