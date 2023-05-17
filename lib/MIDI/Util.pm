@@ -21,15 +21,29 @@ our @EXPORT = qw(
     setup_score
     dura_size
     ticks
+    timidity_conf
+    play_timidity
 );
 
 use constant TICKS => 96;
 
 =head1 SYNOPSIS
 
-  use MIDI::Util qw(midi_dump midi_format set_chan_patch set_time_signature setup_score);
+  use MIDI::Util qw(
+    midi_dump
+    reverse_dump
+    midi_format
+    set_chan_patch
+    set_time_signature
+    setup_score
+    dura_size
+    ticks
+    timidity_conf
+    play_timidity
+  );
 
-  my $dump = midi_dump('volume'); # length, etc.
+  my $dump = midi_dump('length'); # volume, etc.
+  $dump = reverse_dump('length');
   print Dumper $dump;
 
   my $size = dura_size('dqn'); # 1.5
@@ -47,6 +61,11 @@ use constant TICKS => 96;
 
   $score->n( $half, @notes );      # MIDI::Simple functionality
   $score->write_score('some.mid'); # "
+
+  my $cfg = timidity_conf('/some/soundfont.sf2');
+  timidity_conf('soundfont.sf2', 'timidity.cfg'); # save to a file
+
+  play_timidity($score, 'some.mid', 'soundfont.sf2', 'timidity.cfg');
 
 =head1 DESCRIPTION
 
@@ -386,6 +405,44 @@ Return the B<score> ticks.
 sub ticks {
     my ($score) = @_;
     return ${ $score->{Tempo} };
+}
+
+=head2 timidity_conf
+
+  $timidity_conf = timidity_conf($soundfont);
+  timidity_conf($soundfont, $config_file);
+
+A suggested timidity.cfg paragraph to allow you to use this soundfont
+in timidity. If a B<config_file> is given, the timidity configuration
+is written to that file.
+
+=cut
+
+sub timidity_conf {
+    my ($soundfont, $config_file) = @_;
+    my $config = "soundfont $soundfont\n";
+    write_text($config_file, $config) if $config_file;
+    return $config;
+}
+
+=head2 play_timidity
+
+  play_timidity($score_obj, $midi_file, $sf_file, $config_file);
+
+Play a given B<score> named B<midi_file> with C<timidity> and the
+given soundfont B<sf_file>. If a B<config_file> is given, it is used
+for the timidity configuration. If not, C<timidity-midi-util.cfg> is
+used.
+
+=cut
+
+sub play_timidity {
+    my ($score, $midi, $soundfont, $config) = @_;
+    $config ||= 'timidity-midi-util.cfg' unless $config;
+    timidity_conf($soundfont, $config);
+    $score->write_score($midi);
+    my @cmd = ('timidity', '-c', $config, $midi);
+    system(@cmd) == 0 or die "system(@cmd) failed: $?";
 }
 
 1;
