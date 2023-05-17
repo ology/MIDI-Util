@@ -7,6 +7,7 @@ our $VERSION = '0.1101';
 use strict;
 use warnings;
 
+use File::Slurper qw(write_text);
 use MIDI ();
 use MIDI::Simple ();
 use Music::Tempo qw(bpm_to_ms);
