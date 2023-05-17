@@ -67,7 +67,7 @@ use constant TICKS => 96;
   timidity_conf('soundfont.sf2', 'timidity.cfg'); # save to a file
 
   # Or you can just play the score:
-  play_timidity($score, 'some.mid', 'soundfont.sf2', 'timidity.cfg');
+  play_timidity($score, 'some.mid');
 
 =head1 DESCRIPTION
 
@@ -431,19 +431,27 @@ sub timidity_conf {
 
   play_timidity($score_obj, $midi_file, $sf_file, $config_file);
 
-Play a given B<score> named B<midi_file> with C<timidity> and the
-given soundfont B<sf_file>. If a B<config_file> is given, it is used
-for the timidity configuration. If not, C<timidity-midi-util.cfg> is
-used.
+Play a given B<score> named B<midi_file> with C<timidity> and an
+optional soundfont B<sf_file>.
+
+If a soundfont is given, then if a B<config_file> is given, that is
+used for the timidity configuration. If not, C<timidity-midi-util.cfg>
+is used.
 
 =cut
 
 sub play_timidity {
     my ($score, $midi, $soundfont, $config) = @_;
-    $config ||= 'timidity-midi-util.cfg' unless $config;
-    timidity_conf($soundfont, $config);
+    my @cmd;
+    if ($soundfont) {
+        $config ||= 'timidity-midi-util.cfg';
+        timidity_conf($soundfont, $config) if $soundfont;
+        @cmd = ('timidity', '-c', $config, $midi);
+    }
+    else {
+        @cmd = ('timidity', $midi);
+    }
     $score->write_score($midi);
-    my @cmd = ('timidity', '-c', $config, $midi);
     system(@cmd) == 0 or die "system(@cmd) failed: $?";
 }
 
@@ -455,6 +463,8 @@ __END__
 The F<t/01-functions.t> test file and F<eg/*> in this distribution
 
 L<Exporter>
+
+L<File::Slurper>
 
 L<MIDI>
 
