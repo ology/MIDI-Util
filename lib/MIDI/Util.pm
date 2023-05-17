@@ -436,7 +436,8 @@ optional soundfont B<sf_file>.
 
 If a soundfont is given, then if a B<config_file> is given, that is
 used for the timidity configuration. If not, C<timidity-midi-util.cfg>
-is used.
+is used. If a soundfont is not given, a timidity configuration file is
+not rendered and used.
 
 =cut
 
