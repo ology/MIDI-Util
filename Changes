@@ -1,6 +1,8 @@
 Revision history for MIDI-Util
 
 {{$NEXT}}
+
+0.1200 2023-05-17 11:18:08
     - Add timidity support.
     - Use subtests.
     - Improve documentation.
