@@ -12,6 +12,7 @@ use_ok 'MIDI::Util', qw(
     setup_score
     dura_size
     ticks
+    timidity_conf
 );
 
 my $score;
@@ -96,6 +97,16 @@ subtest dura_size => sub {
     is dura_size('wn'), 4, 'dura_size';
     is dura_size('d96'), 1, 'dura_size';
     is dura_size('d384'), 4, 'dura_size';
+};
+
+subtest timidity_conf => sub {
+    my $sf = 'soundfont.sf2';
+    like timidity_conf($sf), qr/$sf$/, 'timidity_conf';
+    my $filename = 'timidity_conf';
+    timidity_conf($sf, $filename);
+    ok -e $filename, 'timidity_conf with filename';
+    unlink $filename;
+    ok !-e $filename, 'file unlinked';
 };
 
 done_testing();
