@@ -446,7 +446,7 @@ sub play_timidity {
     my @cmd;
     if ($soundfont) {
         $config ||= 'timidity-midi-util.cfg';
-        timidity_conf($soundfont, $config) if $soundfont;
+        timidity_conf($soundfont, $config);
         @cmd = ('timidity', '-c', $config, $midi);
     }
     else {
