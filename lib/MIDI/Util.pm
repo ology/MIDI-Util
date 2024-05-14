@@ -417,9 +417,9 @@ sub ticks {
   $timidity_conf = timidity_conf($soundfont);
   timidity_conf($soundfont, $config_file);
 
-A suggested timidity.cfg paragraph to allow you to use this soundfont
-in timidity. If a B<config_file> is given, the timidity configuration
-is written to that file.
+A suggested timidity.cfg paragraph to allow you to use the given
+soundfont in timidity. If a B<config_file> is given, the timidity
+configuration is written to that file.
 
 =cut
 
