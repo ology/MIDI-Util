@@ -89,7 +89,6 @@ Nothing is exported by default.
 =head2 setup_score
 
   $score = setup_score;  # Use defaults
-
   $score = setup_score(  # Override defaults
     lead_in   => $beats,
     volume    => $volume,
@@ -148,7 +147,6 @@ sub setup_score {
 =head2 set_chan_patch
 
   set_chan_patch( $score, $channel );  # Just set the channel
-
   set_chan_patch( $score, $channel, $patch );
 
 Set the MIDI channel and patch.
