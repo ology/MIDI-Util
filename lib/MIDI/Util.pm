@@ -174,10 +174,10 @@ Return a hash or array reference of the following L<MIDI>,
 L<MIDI::Simple>, and L<MIDI::Event> internal lists:
 
   Hashes:
-    Volume
-    Length
+    volume
+    length
     ticks
-    Note
+    note
     note2number
     number2note
     patch2number
