@@ -504,6 +504,8 @@ L<Exporter>
 
 L<File::Slurper>
 
+L<List::Util>
+
 L<MIDI>
 
 L<MIDI::Simple>
