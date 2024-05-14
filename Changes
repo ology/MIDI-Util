@@ -1,6 +1,7 @@
 Revision history for MIDI-Util
 
 {{$NEXT}}
+    - Improve documentation.
 
 0.1300 2024-05-14 14:02:57
     - Add the get_milliseconds() and score2events() functions.
