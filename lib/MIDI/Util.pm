@@ -26,6 +26,7 @@ our @EXPORT = qw(
     timidity_conf
     play_timidity
     get_milliseconds
+    score2events
 );
 
 use constant TICKS => 96;
