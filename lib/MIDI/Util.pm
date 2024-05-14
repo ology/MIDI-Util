@@ -176,7 +176,7 @@ L<MIDI::Simple>, and L<MIDI::Event> internal lists:
   Hashes:
     Volume
     Length
-    TICKS
+    ticks
     Note
     note2number
     number2note
