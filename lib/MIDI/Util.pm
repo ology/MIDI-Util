@@ -482,7 +482,7 @@ sub get_milliseconds {
 
   score2events($score_obj);
 
-Return the B<score> as aarray reference of events.
+Return the B<score> as array reference of events.
 
 =cut
 
