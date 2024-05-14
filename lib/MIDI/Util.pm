@@ -8,6 +8,7 @@ use strict;
 use warnings;
 
 use File::Slurper qw(write_text);
+use List::Util qw(first);
 use MIDI ();
 use MIDI::Simple ();
 use Music::Tempo qw(bpm_to_ms);
@@ -24,6 +25,7 @@ our @EXPORT = qw(
     ticks
     timidity_conf
     play_timidity
+    get_milliseconds
 );
 
 use constant TICKS => 96;
@@ -454,6 +456,21 @@ sub play_timidity {
     }
     $score->write_score($midi);
     system(@cmd) == 0 or die "system(@cmd) failed: $?";
+}
+
+=head2 get_milliseconds
+
+  get_milliseconds($score_obj);
+
+Calculate the milliseconds of a tick given a B<score>, with tempo and
+ticks.
+
+=cut
+
+sub get_milliseconds {
+    my ($score) = @_;
+    my $tempo = first { $_->[0] eq 'set_tempo' } $score->{Score}->@*;
+    return $tempo->[2] / $score->{Tempo}->$*;
 }
 
 1;
