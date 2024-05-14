@@ -498,7 +498,7 @@ __END__
 
 =head1 SEE ALSO
 
-The F<t/01-functions.t> test file and F<eg/*> in this distribution
+The F<t/01-functions.t> test file and F<eg/*> examples in this distribution.
 
 L<Exporter>
 
