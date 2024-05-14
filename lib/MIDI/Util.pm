@@ -185,11 +185,11 @@ L<MIDI::Simple>, and L<MIDI::Event> internal lists:
     notenum2percussion
     percussion2notenum
   Arrays:
-    All_events
-    MIDI_events
-    Meta_events
-    Text_events
-    Nontext_meta_events
+    all_events
+    midi_events
+    meta_events
+    text_events
+    nontext_meta_events
 
 =cut
 
