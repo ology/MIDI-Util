@@ -44,6 +44,8 @@ use constant TICKS => 96;
     ticks
     timidity_conf
     play_timidity
+    get_milliseconds
+    score2events
   );
 
   my $dump = midi_dump('length'); # volume, etc.
@@ -71,6 +73,10 @@ use constant TICKS => 96;
 
   # Or you can just play the score:
   play_timidity($score, 'some.mid');
+
+  my $ms = get_milliseconds($score);
+
+  my $events = score2events($score);
 
 =head1 DESCRIPTION
 
