@@ -470,8 +470,8 @@ ticks.
 
 sub get_milliseconds {
     my ($score) = @_;
-    my $tempo = first { $_->[0] eq 'set_tempo' } $score->{Score}->@*;
-    return $tempo->[2] / $score->{Tempo}->$*;
+    my $tempo = first { $_->[0] eq 'set_tempo' } @{ $score->{Score} };
+    return $tempo->[2] / ${ $score->{Tempo} };
 }
 
 =head2 score2events
