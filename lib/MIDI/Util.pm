@@ -473,6 +473,19 @@ sub get_milliseconds {
     return $tempo->[2] / $score->{Tempo}->$*;
 }
 
+=head2 score2events
+
+  score2events($score_obj);
+
+Return the B<score> as a series of events.
+
+=cut
+
+sub score2events {
+    my ($score) = @_;
+    return MIDI::Score::score_r_to_events_r($score->{Score});
+}
+
 1;
 __END__
 
