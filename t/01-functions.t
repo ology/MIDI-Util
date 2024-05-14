@@ -13,6 +13,7 @@ use_ok 'MIDI::Util', qw(
     dura_size
     ticks
     timidity_conf
+    get_milliseconds
 );
 
 my $score;
@@ -107,6 +108,11 @@ subtest timidity_conf => sub {
     ok -e $filename, 'timidity_conf with filename';
     unlink $filename;
     ok !-e $filename, 'file unlinked';
+};
+
+subtest get_milliseconds => sub {
+    my $got = get_milliseconds($score);
+    is $got, 6250, 'get_milliseconds';
 };
 
 done_testing();
