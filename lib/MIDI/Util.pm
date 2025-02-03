@@ -481,6 +481,7 @@ Of course you'll need to have C<fludisynth> installed.
 
 sub play_fluidsynth {
     my ($score, $midi, $soundfont, $config) = @_;
+    $score->write_score($midi);
     if (!$config && $^O eq 'darwin') {
         $config = [qw(-a coreaudio -m coremidi -i)];
     }
