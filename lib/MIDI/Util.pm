@@ -450,16 +450,16 @@ not rendered and used.
 
 sub play_timidity {
     my ($score, $midi, $soundfont, $config) = @_;
+    $score->write_score($midi);
     my @cmd;
     if ($soundfont) {
         $config ||= 'timidity-midi-util.cfg';
         timidity_conf($soundfont, $config);
-        @cmd = ('timidity', '-c', $config, $midi);
+        @cmd = ('timidity', '-c', $config, '-Od', $midi);
     }
     else {
-        @cmd = ('timidity', $midi);
+        @cmd = ('timidity', '-Od', $midi);
     }
-    $score->write_score($midi);
     system(@cmd) == 0 or die "system(@cmd) failed: $?";
 }
 
