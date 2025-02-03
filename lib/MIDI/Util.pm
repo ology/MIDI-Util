@@ -469,8 +469,8 @@ sub play_timidity {
 
   play_fluidsynth($score_obj, $midi_file, $soundfont, \@config);
 
-Play a given B<score> named B<midi_file> with C<timidity> and a
-B<soundfont> file and optional system B<config> options.
+Play a given B<score> named B<midi_file> with C<fluidsynth> and a
+B<soundfont> file and optional system B<config>.
 
 For C,darwin> is is C<-a coreaudio -m coremidi>. For linux systems,
 this is C<-a alsa -m alsa_seq>.
