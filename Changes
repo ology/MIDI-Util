@@ -2,6 +2,7 @@ Revision history for MIDI-Util
 
 {{$NEXT}}
     - Fix the play_timidity() function.
+    - Add fluidsynth support.
 
 0.1302 2024-05-15 18:58:57
     - Micro- not milliseconds!
