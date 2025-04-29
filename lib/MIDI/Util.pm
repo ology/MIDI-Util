@@ -472,7 +472,7 @@ sub play_timidity {
 Play a given B<score> named B<midi_file> with C<fluidsynth> and a
 B<soundfont> file and optional system B<config>.
 
-For C,darwin> is is C<-a coreaudio -m coremidi>. For linux systems,
+For C<darwin> is is C<-a coreaudio -m coremidi>. For linux systems,
 this is C<-a alsa -m alsa_seq>.
 
 Of course you'll need to have C<fludisynth> installed.
