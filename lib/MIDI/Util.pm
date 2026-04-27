@@ -2,7 +2,7 @@ package MIDI::Util;
 
 # ABSTRACT: MIDI Utilities
 
-our $VERSION = '0.1304';
+our $VERSION = '0.1305';
 
 use strict;
 use warnings;
@@ -323,17 +323,23 @@ sub reverse_dump {
 =head2 midi_format
 
   @formatted = midi_format(@notes);
+  @formatted = midi_format($bool, @notes);
 
-Change sharp C<#> and flat C<b>, in the list of named notes, to the
-L<MIDI::Simple> C<s> and C<f> respectively.
-
-Also change accidentals and double-accidentals into their note
+Change accidentals and double-accidentals into their note
 equivalents, e.g. C<Cb> to C<B>, C<C##> to C<D>, etc.
+
+If the <bool> flag is set to C<1> (the default), change sharp C<#>
+and flat C<b>, in the list of named notes, to the L<MIDI::Simple>
+C<s> and C<f> respectively.
 
 =cut
 
 sub midi_format {
     my (@notes) = @_;
+    my $flag = 1;
+    if ($notes[0] =~ /^(\d)$/) {
+        $flag = shift @notes;
+    }
     my @formatted;
     for my $note (@notes) {
         $note =~ s/C##/D/;
@@ -352,8 +358,10 @@ sub midi_format {
         $note =~ s/Cb/B/;
         $note =~ s/Fb/E/;
 
-        $note =~ s/#/s/;
-        $note =~ s/b/f/;
+        if ($flag) {
+            $note =~ s/#/s/;
+            $note =~ s/b/f/;
+        }
 
         push @formatted, $note;
     }
