@@ -1,6 +1,8 @@
 Revision history for MIDI-Util
 
 {{$NEXT}}
+
+0.1305 2026-04-27 07:32:03
     - Fix typo in docs.
     - Only substitute MIDI s/f for #/b if a flag is given as the first argument to the midi_format() function.
     - Fix dist.ini bits.
