@@ -1,6 +1,8 @@
 Revision history for MIDI-Util
 
 {{$NEXT}}
+    - Improve documentation.
+    - Add the scale_names() function, because Music::Scales doesn't do that.
 
 0.1305 2026-04-27 07:32:03
     - Fix typo in docs.
