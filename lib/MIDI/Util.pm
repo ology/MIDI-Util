@@ -82,7 +82,7 @@ use constant TICKS => 96;
 
   my $events = score2events($score);
 
-  my name = scale_names();
+  my $name = scale_names();
 
 =head1 DESCRIPTION
 
