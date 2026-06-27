@@ -1,7 +1,7 @@
 Revision history for MIDI-Util
 
 {{$NEXT}}
-    - Remove the embarassing "use lib" line in eg/dump.
+    - Remove the embarrassing "use lib" line in eg/dump.
 
 0.1306 2026-06-27 11:19:54
     - Improve documentation.
