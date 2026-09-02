@@ -31,7 +31,7 @@ our @EXPORT = qw(
     scale_names
 );
 
-use constant TICKS => 96;
+use constant TICKS => 96; # nb: used internally when a score is not given
 
 =head1 SYNOPSIS
 
