@@ -1,6 +1,7 @@
 Revision history for MIDI-Util
 
 {{$NEXT}}
+    - Fix the `scale_names()` function to honor `%M::U::original_modes`.
 
 0.1307 2026-06-27 11:33:47
     - Remove the embarrassing "use lib" line in eg/dump.

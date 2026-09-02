@@ -2,7 +2,7 @@ package MIDI::Util;
 
 # ABSTRACT: MIDI and music utilities
 
-our $VERSION = '0.1307';
+our $VERSION = '0.1308';
 
 use strict;
 use warnings;
@@ -12,6 +12,7 @@ use List::Util qw(first);
 use MIDI ();
 use MIDI::Simple ();
 use Music::Tempo qw(bpm_to_ms);
+use Music::Scales qw(%original_modes);
 use Exporter 'import';
 
 our @EXPORT = qw(
@@ -545,45 +546,7 @@ Return the scale names as known to the L<Music::Scales> module.
 =cut
 
 sub scale_names {
-    return [qw(
-        ionian major
-        hypolydian
-        dorian
-        hypomyxolydian
-        phrygian
-        hypoaeolian
-        lydian
-        hypolocrian
-        mixolydian
-        hypoionian
-        aeolian minor m
-        hypodorian
-        locrian
-        hypophrygian
-        harmonicminor hm
-        melodicminor mm
-        blues
-        pentatonic pmaj
-        chromatic
-        diminished
-        wholetone
-        augmented
-        hungarianminor
-        3semitone
-        4semitone
-        neapolitanminor nmin
-        neapolitanmajor nmaj
-        todi
-        marva
-        persian
-        oriental
-        romanian
-        pelog
-        iwato
-        hirajoshi
-        egyptian
-        pminor pentatonicminor
-    )];
+    return [ sort keys %original_modes ];
 }
 
 1;
