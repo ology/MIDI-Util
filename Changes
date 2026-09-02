@@ -1,6 +1,7 @@
 Revision history for MIDI-Util
 
 {{$NEXT}}
+    - Fix the dependencies!
 
 0.1308 2026-09-02 12:56:57
     - Fix the `scale_names()` function to honor `%M::U::original_modes`.
