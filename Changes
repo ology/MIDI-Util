@@ -1,6 +1,7 @@
 Revision history for MIDI-Util
 
 {{$NEXT}}
+    - Export the TICKS constant.
 
 0.1309 2026-09-02 14:23:36
     - Fix the dependencies!

@@ -2,7 +2,7 @@ package MIDI::Util;
 
 # ABSTRACT: MIDI and music utilities
 
-our $VERSION = '0.1309';
+our $VERSION = '0.1310';
 
 use strict;
 use warnings;
@@ -14,6 +14,8 @@ use MIDI::Simple ();
 use Music::Tempo qw(bpm_to_ms);
 use Music::Scales qw(%original_modes);
 use Exporter 'import';
+
+use constant TICKS => 96; # nb: used internally when a score is not given
 
 our @EXPORT = qw(
     midi_dump
@@ -30,9 +32,8 @@ our @EXPORT = qw(
     get_microseconds
     score2events
     scale_names
+    TICKS
 );
-
-use constant TICKS => 96; # nb: used internally when a score is not given
 
 =head1 SYNOPSIS
 
