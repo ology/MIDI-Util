@@ -563,7 +563,7 @@ Remove the given indices from the given chord or list of notes.
 =cut
 
 sub remove_notes {
-    my ($self, $indices, $notes) = @_;
+    my ($indices, $notes) = @_;
     my @notes;
     for my $n (0 .. @$notes - 1) {
         next if any { $n == $_ } @$indices;
