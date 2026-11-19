@@ -2,7 +2,7 @@ package MIDI::Util;
 
 # ABSTRACT: MIDI and music utilities
 
-our $VERSION = '0.1311';
+our $VERSION = '0.1312';
 
 use strict;
 use warnings;
