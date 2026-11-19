@@ -133,7 +133,7 @@ subtest scale_names => sub {
 
 subtest remove_notes => sub {
     my $got = remove_notes([1,2], [qw(C D E F G A B)]);
-    is_deeply @$got, [qw(C F G A B)], 'remove_notes';
+    is_deeply $got, [qw(C F G A B)], 'remove_notes';
 };
 
 done_testing();

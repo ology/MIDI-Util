@@ -8,7 +8,7 @@ use strict;
 use warnings;
 
 use File::Slurper qw(write_text);
-use List::Util qw(first);
+use List::Util qw(any first);
 use MIDI ();
 use MIDI::Simple ();
 use Music::Tempo qw(bpm_to_ms);
