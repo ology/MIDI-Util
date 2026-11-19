@@ -32,6 +32,7 @@ our @EXPORT = qw(
     get_microseconds
     score2events
     scale_names
+    remove_notes
     TICKS
 );
 
@@ -85,6 +86,9 @@ our @EXPORT = qw(
   my $events = score2events($score);
 
   my $name = scale_names();
+
+  my $new_notes = remove_notes([1,2], [qw(Gs5 C5 Ds5)]);
+  # [Gs5]
 
 =head1 DESCRIPTION
 
@@ -548,6 +552,24 @@ Return the scale names as known to the L<Music::Scales> module.
 
 sub scale_names {
     return [ sort keys %original_modes ];
+}
+
+=head2 remove_notes
+
+  @new_notes = remove_notes(\@indices, \@notes);
+
+Remove the given indices from the given chord or list of notes.
+
+=cut
+
+sub remove_notes {
+    my ($self, $indices, $notes) = @_;
+    my @notes;
+    for my $n (0 .. @$notes - 1) {
+        next if any { $n == $_ } @$indices;
+        push @notes, $notes->[$n];
+    }
+    return \@notes;
 }
 
 1;
