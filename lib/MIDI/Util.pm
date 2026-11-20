@@ -15,7 +15,7 @@ use Music::Tempo qw(bpm_to_ms);
 use Music::Scales qw(%original_modes);
 use Exporter 'import';
 
-use constant TICKS => 96; # nb: used internally when a score is not given
+use constant TICKS => 96; # nb: used when a score is not given
 
 our @EXPORT = qw(
     midi_dump
