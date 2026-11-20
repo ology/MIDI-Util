@@ -1,6 +1,7 @@
 Revision history for MIDI-Util
 
 {{$NEXT}}
+    - Improve documentation.
 
 0.1312 2026-11-19 14:43:36
     - Improve tests.

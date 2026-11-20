@@ -53,6 +53,7 @@ our @EXPORT = qw(
     get_microseconds
     score2events
     scale_names
+    remove_notes
   );
 
   my $dump = midi_dump('length'); # volume, etc.
